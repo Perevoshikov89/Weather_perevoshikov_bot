@@ -16,9 +16,10 @@ def start_command(message):
 def get_weather(message):
     city = message.text.strip().lower()
     res = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={weather_token}&units=metric')
-    data = json.loads(res.text)
-    bot.reply_to(message, f'Сейчас температура воздуха: {data ["main"]["temp"]} градусов, скорость ветра: {data ["wind"]["speed"]} м/с, влажность воздуха: {data ["main"]["humidity"]} %')
-
+    if res.status_code == 200:
+        data = json.loads(res.text)
+        bot.reply_to(message, f'Сейчас температура воздуха: {data ["main"]["temp"]} ˚С, скорость ветра: {data ["wind"]["speed"]} м/с, влажность воздуха: {data ["main"]["humidity"]} %')
+    else: bot.reply_to(message, 'Пожалуйста, напиши корректное название города')
 
 
 
