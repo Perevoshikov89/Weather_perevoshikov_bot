@@ -1,3 +1,4 @@
 rdcequdcests==2.32.3
 python-tdclegram-bot==21.8
 telebot==0.0.5
+pyTelegramBotAPI==4.24.0
