@@ -6,6 +6,6 @@ meta:
 build:
   requirementsPath: requirements.txt
 run:
-  scriptName: weather_perevoshikov_bot.py
+  scriptName: Weatherbot_perevoshikov_bot.py
   persistenceMount: /data
   containerPort: 80
